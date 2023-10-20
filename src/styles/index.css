@@ -1,6 +1,10 @@
 body {
-    background-color: rgb(128, 119, 119);
+    background-color: rgb(0, 0, 0);
     color: white;
+}
+
+.titleBrand {
+    width: 45em;
 }
 
 /* 
