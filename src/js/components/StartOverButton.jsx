@@ -1,9 +1,14 @@
 import React from "react";
 
-function StartOverButton() {
+const StartOverButton = ({ gameOver, setGameOver, setBoard }) => {
+    const resetGame = () => {
+        setGameOver(false);
+        setBoard(Array(9).fill(null));
+    };
+    
     return (
-        <div>Start Over</div>
-    )
-}
+        <button className="startOver" onClick={resetGame}>Start Over</button>
+    );
+};
 
 export default StartOverButton;

@@ -40,3 +40,19 @@ body {
     place-items: center;
     justify-content: center;
 }
+
+.startOver {
+    border-radius: 10%;
+    border: none;
+    font-family: 'Fredoka', sans-serif;
+    width: 100px;
+    color: rgb(0, 0, 0);
+    background: rgb(122, 155, 222);
+    margin-bottom: 10px;
+}
+
+.announcement {
+    font-size: 50px;
+    font-family: 'Fredoka', sans-serif;
+    margin-bottom: 20px;
+}

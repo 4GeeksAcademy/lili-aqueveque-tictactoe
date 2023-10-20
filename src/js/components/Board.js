@@ -5,7 +5,8 @@ const Board = ({board, onClick}) => {
     return (
         <div className='board'>
             {board.map((value, idx) => {
-                return <Box value={value} onClick={() => onClick(idx)}/>
+                {/*Shouldnt be able to re-click on a square and change its value */}
+                return <Box value={value} onClick={() => value === null && onClick(idx)}/>
             })}
             </div>
     )

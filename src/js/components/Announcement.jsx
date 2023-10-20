@@ -1,9 +1,12 @@
 import React from "react";
 
-function Announcement() {
+const Announcement = ({ scores, xPlaying }) => {
+    const { xScore, oScore } = scores;
+    const currentPlayer = xPlaying ? "X" : "O";
+
     return (
-        <div className="visible">
-            <h2>Game Over</h2>
+        <div className="announcement">
+            <span>It is {currentPlayer} turn!</span>
         </div>
     )
 }
