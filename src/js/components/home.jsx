@@ -2,30 +2,19 @@ import React, { useState } from "react";
 import Announcement from "./Announcement";
 import StartOverButton from "./StartOverButton";
 import Tile from "./Tile";
-
-
-//include images into your bundle
+import Board from "./Board";
 import ticTacToeTitle from "../../img/tictactoe-title.png";
 
-//create your first component
 const Home = () => {
-	const [gameBoard, setGameBoard] = useState([
-		' ', ' ', ' ',
-		' ', ' ', ' ',
-		' ', ' ', ' '
-	]);
+	const board = ["X", "X", "X", "X", "X", "X", "X", "X", "X"]
 	return (
 		<div className="container text-center">
 			<div className="menu">
-				<img className="titleBrand" src={ticTacToeTitle} />
-				{/*First draw the components as they will go in the page*/}
+				<img className="titleBrand" src={ticTacToeTitle} alt="Tic Tac Toe" />
 				<Announcement />
 				<StartOverButton />
-				<Tile />
+				<Board board={board} onClick={null} />
 			</div>
-			{/*{gameBoard.map((value, i) => (
-				<Tile key={i} />
-			))} */}
 		</div>
 	);
 };
