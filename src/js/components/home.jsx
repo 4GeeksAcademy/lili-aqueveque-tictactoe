@@ -1,11 +1,14 @@
+//Components
 import React, { useState } from "react";
+
 import Announcement from "./Announcement";
 import StartOverButton from "./StartOverButton";
 import Board from "./Board";
+//image & others
 import ticTacToeTitle from "../../img/tictactoe-title.png";
 
 const Home = () => {
-	const WIN_COMBOS = [
+	const WIN_COMBOS = [ //8 possible winning combos
 		[0, 1, 2],
 		[3, 4, 5],
 		[6, 7, 8],
@@ -64,7 +67,7 @@ const Home = () => {
 			<div className="menu">
 				<img className="titleBrand" src={ticTacToeTitle} alt="Tic Tac Toe" />
 				<Announcement scores={scores} xPlaying={xPlaying} gameOver={gameOver} />
-				<StartOverButton setGameOver={setGameOver} setBoard={setBoard} />
+				<StartOverButton setGameOver={setGameOver} setBoard={setBoard} setScores={setScores} setXPlaying={setXPlaying} />
 				<Board board={board} onClick={handleBoxClick} />
 			</div>
 		</div>
