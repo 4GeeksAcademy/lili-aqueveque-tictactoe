@@ -43,6 +43,7 @@ const Home = () => {
 		const updatedBoard = board.map((value, idx) => (idx === boxIdx ? (xPlaying ? "X" : "O") : value));
 
 		const winner = checkWinner(updatedBoard);
+		const isDraw = updatedBoard.every((value) => value !== null);
 
 		if (winner) {
 			if (winner === "O") {
@@ -50,6 +51,8 @@ const Home = () => {
 			} else {
 				setScores((prevScores) => ({ ...prevScores, xScore: prevScores.xScore + 1 }));
 			}
+			setGameOver(true);
+		} else if (isDraw) {
 			setGameOver(true);
 		} else {
 			setXPlaying(!xPlaying);

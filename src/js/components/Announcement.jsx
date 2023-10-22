@@ -17,4 +17,5 @@ const Announcement = ({ scores, xPlaying, gameOver }) => {
     }
 };
 
+
 export default Announcement;

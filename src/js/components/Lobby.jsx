@@ -3,22 +3,22 @@ import React, { useState } from "react";
 const Lobby = ({ onJoinGame }) => {
     const [playerX, setPlayerX] = useState("");
     const [playerO, setPlayerO] = useState("");
-    const [selectedSymbolX, setSelectedSymbolX] = useState(false);
+
+    const [selectedSymbol, setSelectedSymbol] = useState(null);
 
     const handleSymbolSelection = (symbol) => {
-        if (selectedSymbolX) {
-            setPlayerO(symbol);
+        if (selectedSymbol === "X") {
+            setPlayerX(playerX);
+        } else if (selectedSymbol === "O") {
+            setPlayerO(playerO);
         } else {
-            setPlayerX(symbol);
+            alert("Please choose a symbol for both players.");
         }
-    };
 
-    const handleStartGame = () => {
-        // Validate player names and symbol choices if necessary
-        if (playerX && playerO) {
+        // Check if both players have chosen names and symbols
+        if (playerX && playerO && selectedSymbol) {
+            // Start the game
             onJoinGame(playerX, playerO);
-        } else {
-            alert("Please enter valid names and choose symbols for both players.");
         }
     };
 
@@ -30,25 +30,29 @@ const Lobby = ({ onJoinGame }) => {
                     type="text"
                     placeholder="Player 1 username"
                     value={playerX}
-                    onChange={(e) => setPlayerX(e.target.value)}
+                    onChange={(e) => {
+                        setPlayerX(e.target.value);
+                        setSelectedSymbol("X");
+                    }}
                 />
                 <input
                     type="text"
                     placeholder="Player 2 username"
                     value={playerO}
-                    onChange={(e) => setPlayerO(e.target.value)}
+                    onChange={(e) => {
+                        setPlayerO(e.target.value);
+                        setSelectedSymbol("O");
+                    }}
                 />
             </div>
             <div className="bottom">
-                <button className="xButton">
+                <button className="xButton" onClick={() => handleSymbolSelection("X")}>
                     X
                 </button>
-                <button className="oButton">
+                <button className="oButton" onClick={() => handleSymbolSelection("O")}>
                     O
                 </button>
             </div>
-
-            <button onClick={handleStartGame}>Start Game</button>
         </div>
     );
 };
