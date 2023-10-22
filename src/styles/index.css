@@ -56,3 +56,42 @@ body {
     font-family: 'Fredoka', sans-serif;
     margin-bottom: 20px;
 }
+
+.lobby {
+    background-color: #424242;
+    font-family: 'Fredoka', sans-serif;
+    width: 60rem;
+    height: 20rem;
+    justify-content: center;
+    margin: auto;
+}
+
+.lobby h2 {
+    font-size: 55px;
+    margin: 30px;
+    padding-top: 10px;
+}
+
+.xButton {
+    color: rgb(145, 110, 197);
+    font-size: 5em;
+    width: 5rem;
+    height: 5rem;
+    text-align: center;
+    font-family: 'Fredoka', sans-serif;
+    line-height: 5rem;
+    margin: 0.5rem;
+    border: none;
+}
+
+.oButton {
+    color: rgb(91, 216, 255);
+    font-size: 5em;
+    width: 5rem;
+    height: 5rem;
+    text-align: center;
+    font-family: 'Fredoka', sans-serif;
+    line-height: 5rem;
+    margin: 1rem;
+    border: none;
+}

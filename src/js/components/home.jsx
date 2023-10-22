@@ -6,6 +6,7 @@ import StartOverButton from "./StartOverButton";
 import Board from "./Board";
 //image & others
 import ticTacToeTitle from "../../img/tictactoe-title.png";
+import Lobby from "./Lobby";
 
 const Home = () => {
 	const WIN_COMBOS = [ //8 possible winning combos
@@ -23,6 +24,11 @@ const Home = () => {
 	const [xPlaying, setXPlaying] = useState(true);
 	const [scores, setScores] = useState({ xScore: 0, oScore: 0 });
 	const [gameOver, setGameOver] = useState(false);
+	const [players, setPlayers] = useState({ playerX: "", playerO: "" });
+
+	const handleJoinGame = (playerX, playerO) => {
+		setPlayers({ playerX, playerO });
+	};
 
 	const resetGame = () => {
 		setGameOver(false);
@@ -66,9 +72,15 @@ const Home = () => {
 		<div className="container text-center">
 			<div className="menu">
 				<img className="titleBrand" src={ticTacToeTitle} alt="Tic Tac Toe" />
-				<Announcement scores={scores} xPlaying={xPlaying} gameOver={gameOver} />
-				<StartOverButton setGameOver={setGameOver} setBoard={setBoard} setScores={setScores} setXPlaying={setXPlaying} />
-				<Board board={board} onClick={handleBoxClick} />
+				{!players.playerX || !players.playerO ? (
+					<Lobby onJoinGame={handleJoinGame} />
+				) : (
+					<>
+						<Announcement scores={scores} xPlaying={xPlaying} gameOver={gameOver} />
+						<StartOverButton setGameOver={setGameOver} setBoard={setBoard} setScores={setScores} setXPlaying={setXPlaying} />
+						<Board board={board} onClick={handleBoxClick} />
+					</>
+				)}
 			</div>
 		</div>
 	);
